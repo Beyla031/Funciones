@@ -1,22 +1,28 @@
-# Tkither/importa la libreria 
-import tkinter as tk
+from verificador import minusculas, mayusculas, numeros, mas_de_8_caracteres
 
-# CREAR UNA VENTANA
-#para crear una ventan es necesari la intancia de metodo
-#Tk de la libreria tkinter, almacena la instancia en una variable
-mi_ventana = tk.Tk()
-#utiliza el metodo tittle() para agregar un titulo a la ventana 
-mi_ventana.title("Jossue Fuentes")
-#utiliza el metodo geometry () para establecer un tamanno en pixceles 
-mi_ventana.geometry("500x600")
+password = input("Ingresa una contraseña: ")
 
-# Crear un texto
-#como argument agrega el nombre de tu ventana y el texto en la variable
-etiqueta = tk.Label(mi_ventana, text="Hola Mundo")
-# El metodo pack () muestra el objeto con caracteristicas basicas
-etiqueta.pack()
+seguridad = 0
 
-#Muestra la venatana y se queda siempre al final
-mi_ventana.mainloop()
+if minusculas(password):
+    seguridad += 25
 
+if mayusculas(password):
+    seguridad += 25
 
+if numeros(password):
+    seguridad += 25
+
+if mas_de_8_caracteres(password):
+    seguridad += 25
+
+if seguridad == 100:
+    print("La contraseña es 100% segura.")
+elif seguridad == 75:
+    print("La contraseña es 75% segura.")
+elif seguridad == 50:
+    print("La contraseña es 50% segura.")
+elif seguridad == 25:
+    print("La contraseña es 25% segura.")
+else:
+    print("La contraseña no es segura.")
