@@ -1,4 +1,4 @@
-from services.inventario import productos
+from ..Services.inventario import productos
 
 def mostrar_valor_total():
     total = 0
